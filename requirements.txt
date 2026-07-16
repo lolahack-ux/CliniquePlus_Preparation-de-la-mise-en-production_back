@@ -1,0 +1,17 @@
+datetime
+fpdf
+genericpath
+matplotlib.pyplot
+matplotlib.ticker
+numpy
+os
+mysql.connector
+pathlib
+plotly.express
+pandas
+seaborn
+shutil
+sys
+sqlite3
+streamlit
+warnings

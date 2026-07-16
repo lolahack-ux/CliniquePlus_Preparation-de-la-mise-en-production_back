@@ -1,0 +1,8 @@
+node_modules
+.git
+.env
+npm-debug.log
+Dockerfile
+mdp.js
+mdp.py
+compose.yaml
