@@ -12,7 +12,21 @@ from mdp import motdepasse, bdd, port
 from genericpath import exists
 import sys
 import os
-from alimentation_base_analytique import executer_pipeline
+from ETL3 import executer_pipeline
+import mysql.connector
+from dotenv import load_dotenv  
+from dotenv import dotenv_values
+config = dotenv_values(".env") 
+
+# Charge les variables du fichier .env
+load_dotenv()
+
+host = os.getenv("DB_HOST")
+port = int(os.getenv("DB_PORT", "3306"))
+user = os.getenv("DB_USER")
+password = os.getenv("DB_PASSWORD")
+database = os.getenv("DB_NAME")
+
 
 # Import du module IA
 from ia_comorbidites import get_comorbidite_probable, afficher_prediction_comorbidites
@@ -23,12 +37,11 @@ st.title("Résultats des Nuits d'Étude")
 st.markdown("**Clinique du Sommeil d'Arles**")
 
 DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": motdepasse,
-    "database": bdd,
-    "port": port,
-    "use_pure" : True
+    "host": "host",
+    "user": "user",
+    "password": 'password',
+    "database": 'database',
+    "port": 'port',
 }
 
 NUITS_DIR = Path("nuits")

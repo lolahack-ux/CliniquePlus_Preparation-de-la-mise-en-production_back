@@ -5,8 +5,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import mysql.connector
 from mysql.connector import Error as MySQLError
-from mdp import motdepasse, bdd, port
 import warnings
+from dotenv import load_dotenv  
+from dotenv import dotenv_values
+config = dotenv_values(".env") 
+
+# Charge les variables du fichier .env
+load_dotenv()
+
+host = os.getenv("DB_HOST")
+port = int(os.getenv("DB_PORT", "3306"))
+user = os.getenv("DB_USER")
+password = os.getenv("DB_PASSWORD")
+database = os.getenv("DB_NAME")
 
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -14,11 +25,11 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 # CONFIGURATION
 # ============================================================
 MYSQL_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": motdepasse,
-    "database": bdd,
-    "port": port,
+    "host": "host",
+    "user": "user",
+    "password":'password',
+    "database": 'database',
+    "port": 'port' ,
     
 }
 

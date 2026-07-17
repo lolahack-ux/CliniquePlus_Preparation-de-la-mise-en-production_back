@@ -25,19 +25,31 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from mdp import motdepasse, bdd, port
+import os
+from dotenv import load_dotenv  
+from dotenv import dotenv_values
+config = dotenv_values(".env") 
+
+# Charge les variables du fichier .env
+load_dotenv()
+
+host = os.getenv("DB_HOST")
+port = int(os.getenv("DB_PORT", "3306"))
+user = os.getenv("DB_USER")
+password = os.getenv("DB_PASSWORD")
+database = os.getenv("DB_NAME")
+
 
 # =============================================================================
 # CONFIGURATION
 # =============================================================================
 
 MYSQL_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": motdepasse,
-    "database": bdd,
-    "port": port,
-    "use_pure" : True
+    "host": "host",
+    "user": "user",
+    "password": 'password',
+    "database": 'database',
+    "port": 'port',
 }
 
 SQLITE_PATH = Path("base_analytique.db")
